@@ -42,7 +42,7 @@ Browse to http://192.168.50.119:5000 and login to Ombi. Click the `Settings Tab`
 
 And click `Submit`.
 
-![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/media_management.png)
+![alt text](https://raw.githubusercontent.com/ahuacate/ombi/master/images/Ombi_Configuration.png)
 
 ### 2.02 Configure Profiles
 Edit Delay Profiles. Add 300 minutes to the torrent delay.
