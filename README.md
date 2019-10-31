@@ -202,7 +202,7 @@ My standard setup for trusted users is as follows:
 | **Notification Preferences** | Leave Default
 | ** Quality & Root Path Preferences | Leave Default
 
-And remember to click `Create` to add the user.
+And remember to click `Create` to add the new user.
 
 ![alt text](https://raw.githubusercontent.com/ahuacate/ombi/master/images/User_Management.png)
 
