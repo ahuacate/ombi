@@ -18,17 +18,16 @@ Other Prerequisites are:
 - [x] Ombi LXC with Ombi SW installed and configured per [Ombi LXC - Ubuntu 18.04](https://github.com/ahuacate/proxmox-lxc-media/blob/master/README.md#1200-ombi-lxc---ubuntu-1804)
 
 Tasks to be performed are:
-- [ ] 1.00 Easy Sonarr Configuration
-- [ ] 2.00 Manually Configure Sonarr Settings
-- [ ] 3.00 Create & Restore Sonarr Backups
+- [ ] 1.00 Manually Configure Ombi Settings
+- [ ] 2.00 Ombi User Management
+- [ ] 3.00 Create & Restore Ombi Backups
 - [ ] 00.00 Patches & Fixes
-
 
 
 ## 1.00 Manually Configure Ombi Settings
 Browse to http://192.168.50.119:5000 and login to Ombi. Click the `Settings` and configure all your tabs as follows.
 
-### 2.01 Ombi Tab
+### 1.01 Ombi Tab
 Click the `Settings` > `Ombi Tab` and configure as follows:
 
 | Ombi Configuration | Value
@@ -46,10 +45,10 @@ And click `Submit`.
 ![alt text](https://raw.githubusercontent.com/ahuacate/ombi/master/images/Ombi_Configuration.png)
 
 
-### 2.02 Configuration Tab
+### 1.02 Configuration Tab
 Nothing to do here.
 
-### 2.03 Media Server Tab
+### 1.03 Media Server Tab
 Click the `Settings` > `Media Server Tab` > `Emby/Jellyfin` and configure as follows:
 
 | Emby/Jellyfin Configuration  | Value
@@ -65,7 +64,7 @@ And click `Test Connectivity` and if success click `Submit`.
 
 ![alt text](https://raw.githubusercontent.com/ahuacate/ombi/master/images/Jellyfin_Configuration.png)
 
-### 2.04 TV Tab
+### 1.04 TV Tab
 Click the `Settings` > `TV Tab` > `Sonarr` and configure as follows:
 
 | Sonarr Settings  | Value | Notes
@@ -90,7 +89,7 @@ And click `Test Connectivity` and if success click `Submit`.
 ![alt text](https://raw.githubusercontent.com/ahuacate/ombi/master/images/Sonarr_Settings.png)
 
 
-### 2.05 Movies Tab
+### 1.05 Movies Tab
 Click the `Settings` > `Movies Tab` > `Radnarr` and configure as follows:
 
 | Sonarr Settings  | Value | Notes
@@ -111,7 +110,7 @@ And click `Test Connectivity` and if success click `Submit`.
 ![alt text](https://raw.githubusercontent.com/ahuacate/ombi/master/images/Radarr_Settings.png)
 
 
-### 2.06 Music Tab
+### 1.06 Music Tab
 Click the `Settings` > `Music Tab` > `Lidarr` and configure as follows:
 
 | Sonarr Settings  | Value
@@ -132,10 +131,10 @@ And click `Test Connectivity` and if success click `Submit`.
 
 ![alt text](https://raw.githubusercontent.com/ahuacate/ombi/master/images/Lidarr_Settings.png)
 
-### 2.07 Notifications Tab
+### 1.07 Notifications Tab
 Nothing to do here.
 
-### 2.08 System Tab
+### 1.08 System Tab
 Click the `Settings` > `System Tab` > `Update` and configure as follows:
 
 | Update Settings | Value
@@ -149,7 +148,7 @@ And click `Submit`.
 ![alt text](https://raw.githubusercontent.com/ahuacate/ombi/master/images/Update_Settings.png)
 
 
-## 3.00 Ombi User Management
+## 2.00 Ombi User Management
 Ombi allows you to host your own media request and user management system. If you are sharing Jellyfin server with other users, allow them to request new content using an easy to manage interface. Manage all your requests for Movies, TV with ease, leave notes for the user and get notification when a user requests something.
 
 When you add a new user you are required to set their roles. The user role options are:
@@ -173,7 +172,7 @@ Changing user roles requires them to log out and in again before they are applie
 
 Changing user roles requires them to log out and in again before they are applied.
 
-### 3.01 Add a new user
+### 2.01 Add a new user
 Browse to http://192.168.50.119:5000 and login to Ombi. Click the `User Management` > `Add User To Ombi` and configure all your fields as requested. 
 
 My standard setup for trusted users is as follows:
@@ -206,14 +205,14 @@ And remember to click `Create` to add the new user.
 
 ![alt text](https://raw.githubusercontent.com/ahuacate/ombi/master/images/User_Management.png)
 
-## 4.00 Create & Restore Ombi Backups
+## 3.00 Create & Restore Ombi Backups
 Ombi does'nt have a built in backup service.
 
 But it's good idea to make a clean backup of your working Ombi settings, including all passwords etc, before adding any tv series media. The clean backup file MUST be stored outside of the Proxmox Ombi LXC container for safe keeping. Then in the event of you needing to recreate your Ombi LXC you can use this backup file to quickly restore all your Ombi settings.
 
 The backup files must be located on your NAS in folder /mnt/backup/ombi for the following scripts to work.
 
-### 4.01 Create a Base Settings Backup
+### 3.01 Create a Base Settings Backup
 Perform after you have completed Steps 1.00 or Steps 2.00. This file must be stored on your NAS for future rebuilds.
 To create a backup use the Proxmox web interface and go to `typhoon-01` > `119 (ombi)` > `>_ Shell` and type the following:
 
@@ -225,7 +224,7 @@ sudo systemctl restart ombi.service
 ```
 Thats it. You have created a base backup.
 
-### 4.02 Restore to Ombi Base Settings
+### 3.02 Restore to Ombi Base Settings
 With the Proxmox web interface go to `typhoon-01` > `119 (ombi)` > `>_ Shell` and type the following:
 ```
 sudo systemctl stop ombi.service &&
