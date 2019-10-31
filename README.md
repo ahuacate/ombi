@@ -26,9 +26,10 @@ Tasks to be performed are:
 
 
 ## 1.00 Manually Configure Ombi Settings
-Browse to http://192.168.50.119:5000 and login to Ombi. Click the `Settings Tab` and configure all your tabs as follows.
+Browse to http://192.168.50.119:5000 and login to Ombi. Click the `Settings` and configure all your tabs as follows.
 
-### 2.01 Configure Ombi Tab
+### 2.01 Ombi Tab
+Click the `Settings` > `Ombi Tab` and configure as follows:
 
 | Ombi Configuration | Value
 | :---  | :---:
@@ -44,175 +45,175 @@ And click `Submit`.
 
 ![alt text](https://raw.githubusercontent.com/ahuacate/ombi/master/images/Ombi_Configuration.png)
 
-### 2.02 Configure Profiles
-Edit Delay Profiles. Add 300 minutes to the torrent delay.
-![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/profiles.png)
 
-### 2.03 Configure Quality
-Edit HDTV Quality and BluRay-1080p size limit to 10.00GB.
-![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/quality.png)
+### 2.02 Configuration Tab
+Nothing to do here.
 
-### 2.04 Configure Indexers
-This is where you configure Lidarr to use Usenet as your primary search indexer and Torrents (Jackett) as the secondary indexer.  For torrents Sonarr uses Jackett which must be installed as shown [HERE](https://github.com/ahuacate/jackett).
+### 2.03 Media Server Tab
+Click the `Settings` > `Media Server Tab` > `Emby/Jellyfin` and configure as follows:
 
-**A) Add Jackett as a Indexer**
-
-Create a new torrent indexer using the `Torznab Custom` template and fill out the details as shown below.
-
-| Add Torznab | Value
+| Emby/Jellyfin Configuration  | Value
 | :---  | :---:
-| Name | `Jackett`
-| Enable RSS Sync | `No`
-| Enable Search | `Yes`
-| URL | `http://192.168.30.113:9117`
-| API Path | `/torznab/all/api`
-| API Key | `s9tcqkddvjpkmis824pp6ucgpwcd2xnc`
-| Categories | `5030,5040`
-| Anime Categories | leave blank
-| Additional Parameters | leave blank
-| Minimum Seeders | `1`
-| Seed Ratio | leave blank
-| Seed Time | leave blank
-| Season-Pack Seed Time | leave blank
+| Server Name  | `jellyfin`
+| Host IP | `192.168.50.111`
+| Port | `8086`
+| SSL | `☐`
+| Emby Api Key | `Insert your jellyfin api key here`
+| Externally Facing Hostname | `.e https://jellyfin-site1.foo.bar`
 
-And click `Save`. The finished Jackett configuration looks like:
+And click `Test Connectivity` and if success click `Submit`.
 
-![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/torznab.png)
+![alt text](https://raw.githubusercontent.com/ahuacate/ombi/master/images/Jellyfin_Configuration.png)
 
-**B) Add Usenet Indexers**
+### 2.04 TV Tab
+Click the `Settings` > `TV Tab` > `Sonarr` and configure as follows:
 
-Add all your Usenet indexers providers with the `Newsnab` presets (or custom if your provider is not listed).
-
-Finally edit the `Options` Retention to `1500` days.
-
-![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/indexers.png)
-
-### 2.05 Configure Download Clients
-**A)  Deluge Download Client**
-
-First create a new download client using the `Torrent > Deluge` template and fill out the details as shown below.
-
-| Add Deluge | Value | Notes
+| Sonarr Settings  | Value | Notes
 | :---  | :---: | :---
-| Name | `Deluge`
-| Enable| `Yes`
-| Host | `192.168.30.113`
-| Port | `8112`
-| URL Base| leave blank
-| Password| `insert your deluge password` | *This is your Deluge login password*
-| Category | `sonarr-series`
-| Recent Priority | First
-| Older Priority | Last
-| Add Paused | No
-| Use SSL | No
+| Enable | `☑`
+| V3 | `☑`
+| Sonarr Hostname or IP | `192.168.50.115`
+| Port | `8086`
+| Sonarr Api Key | `Insert your sonarr api key here`
+| SSL | `☐`
+| Sonarr Base Url| `/sonarr`
+| **Other Settings**
+| Quality Profiles | `HD-1080p` | *Note, change to Ultra-HD if you have 4K HDR TV's*
+| Quality Profiles (Anime) | `HD-1080p` | *Note, change to Ultra-HD if you have 4K HDR TV's*
+| Default Root Folders  | `/mnt/video/tv/`
+| Default Root Folders (Anime)  | `/mnt/video/tv/`
+| Language Profiles | Leave Default
+| Enable season folders | `☑`
 
-And click `Test` to check it works. If successful, click `Save`.
+And click `Test Connectivity` and if success click `Submit`.
 
-![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/deluge.png)
+![alt text](https://raw.githubusercontent.com/ahuacate/ombi/master/images/Sonarr_Settings.png)
 
-**B)  NZBGet Download Client**
 
-First create a new download client using the `Usenet > NZBGet` template and fill out the details as shown below.
+### 2.05 Movies Tab
+Click the `Settings` > `Movies Tab` > `Radnarr` and configure as follows:
 
-| Add NZBGet | Value | Notes
+| Sonarr Settings  | Value | Notes
 | :---  | :---: | :---
-| Name | `NZBGet`
-| Enable| `Yes`
-| Host | `192.168.30.112`
-| Port | `6789`
-| URL Base| leave blank
-| Username | `client`
-| Password| `insert your client password` | *This is your NZBGet client password*
-| Category | `sonarr-series`
-| Recent Priority | High
-| Older Priority | Normal
-| Add Paused | No
-| Use SSL | No
+| Enable | `☑`
+| Hostname or IP | `192.168.50.116`
+| Port | `7878`
+| Api Key | `Insert your radarr api key here`
+| SSL | `☐`
+| Base Url| `/radarr`
+| **Other Settings**
+| Quality Profiles | `HD-1080p` | *Note, change to Ultra-HD if you have 4K HDR TV's*
+| Default Root Folders  | `/mnt/video/movies/`
+| Default Minimum Availability | `Physical/Web`
 
-And click `Test` to check it works. If successful, click `Save`.
+And click `Test Connectivity` and if success click `Submit`.
 
-![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/nzbget.png)
-
-Other `download tab` settings must be set as follows:
-
-![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/download_client.png)
-
-### 2.06 Configure Connect
-Here you need to create two connections: A) Jellyfin; and, B) sonarr-episode-trimmer. 
-
-**A)  Jellyfin Connection**
-
-First create a new connection using the `Emby (Media Browser)` template and fill out the details as shown below.
-
-| Add - Emby (Media Browser) | Value | Notes
-| :---  | :---: | :---
-| Name | `Jellyfin`
-| On Grab| `No`
-| On Download | `Yes`
-| On Upgrade | `Yes`
-| On Rename | `Yes`
-| Filter Series | leave blank
-| Host | `192.168.50.111`
-| Port | `8096`
-| API Key | Insert your Jellyfin API key | *Note, create one in Jellyfin for Sonarr*
-| Send Notifications| `Yes`
-| Update Library | `Yes`
-
-And click `Test` to check it works. If successful, click `Save`.
-
-![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/jellyfin.png)
-
-**B)  sonarr-episode-trimmer**
-
-First create a new connection using the `Custom Script` template and fill out the details as shown below.
-
-| Add - Custom Script | Value | Notes
-| :---  | :---: | :---
-| Name | `sonarr-episode-trimmer`
-| On Grab| `No`
-| On Download | `Yes`
-| On Upgrade | `No`
-| On Rename | `No`
-| Filter Series | leave blank
-| Path | `/home/media/.config/NzbDrone/custom-scripts/sonarr-episode-trimmer.py`
-| Arguments | `--config /home/media/.config/NzbDrone/custom-scripts/config --custom-script`
-
-And click `Test` to check it works. If successful, click `Save`.
-
-![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/sonarr-episode-trimmer.png)
-
-### 2.07 Configure General
-Here are required edits: 1) URL Base; and, 2) setting the security section to enable username and login.
-
-| Start-Up | Value | Notes
-| :---  | :---: | :---
-| Bind Address | `*`
-| Port Number | 8989
-| URL Base | `/sonarr`
-| Enable SSL | No
-| Open Browser on start | Yes
-| **Security**
-| Authentication | `Basic (Browser Pop-up)`
-| Username | `storm` | *Note, or whatever username you choose*
-| Password | `insert password here` | *Add a complex password and record it i.e oTL&9qe/9Y&RV*
-| API Key | leave default
-
-And click `Save`.
-
-![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/general.png)
-
-### 2.08 Configure UI
-![alt text](https://raw.githubusercontent.com/ahuacate/sonarr/master/images/ui.png)
+![alt text](https://raw.githubusercontent.com/ahuacate/ombi/master/images/Radarr_Settings.png)
 
 
-## 3.00 Create & Restore Ombi Backups
+### 2.06 Music Tab
+Click the `Settings` > `Music Tab` > `Lidarr` and configure as follows:
+
+| Sonarr Settings  | Value
+| :---  | :---:
+| Enable | `☑`
+| Hostname or IP | `192.168.50.117`
+| Port | `8686`
+| Api Key | `Insert your lidarr api key here`
+| SSL | `☐`
+| Base Url| `/lidarr`
+| **Other Settings**
+| Quality Profiles | `Lossless`
+| Default Root Folders  | `/mnt/music/`
+| Metadata Profile | Leave Default
+| Album Folder | `☑`
+
+And click `Test Connectivity` and if success click `Submit`.
+
+![alt text](https://raw.githubusercontent.com/ahuacate/ombi/master/images/Lidarr_Settings.png)
+
+### 2.07 Notifications Tab
+Nothing to do here.
+
+### 2.08 System Tab
+Click the `Settings` > `System Tab` > `Update` and configure as follows:
+
+| Update Settings | Value
+| :---  | :---:
+| Enable Automatic Update| `☑`
+| Use your own updater script | `☐`
+| Ombi Process Name | Ombi
+
+And click `Submit`.
+
+![alt text](https://raw.githubusercontent.com/ahuacate/ombi/master/images/Update_Settings.png)
+
+
+## 3.00 Ombi User Management
+Ombi allows you to host your own media request and user management system. If you are sharing Jellyfin server with other users, allow them to request new content using an easy to manage interface. Manage all your requests for Movies, TV with ease, leave notes for the user and get notification when a user requests something.
+
+When you add a new user you are required to set their roles. The user role options are:
+
+Changing user roles requires them to log out and in again before they are applied.
+
+| User Role | Description
+| :---  | :---
+| Admin | This is the role that gives the power to everything! You have full access to all users, manage requests and the ability to view and change any settings.
+| Power User | This role has the ability to manage users and manage requests. This role does not have access to any settings
+| Request Movie | Gives the ability for the user to request movies
+| Request Tv | Gives the ability for the user to request TV Shows, Seasons and Episodes
+| Auto Approve Movie | Auto approves all movie requests for this user
+| Auto Approve TV | Auto approves all Tv Show, Season and Episode requests for this user
+| Disabled | If a user has this role they can no longer log in.
+| Receives Newsletter | User will receive your Newsletter.
+| Request Music | User can request music.
+| Auto Approve Music | Users music requests will be automatically approved and sent to Lidarr.
+| Manage Own Requests | This will allow the user to Delete requests (should be used in conjunction with the Hide Requests from other users).
+| Custom Page | This allows the user to edit the custom page (if enabled)
+
+Changing user roles requires them to log out and in again before they are applied.
+
+### 3.01 Add a new user
+Browse to http://192.168.50.119:5000 and login to Ombi. Click the `User Management` > `Add User To Ombi` and configure all your fields as requested. 
+
+My standard setup for trusted users is as follows:
+
+| User Details | Value
+| :---  | :---
+| Username | Choose your users login name
+| Alias | Leave Blank
+| Email Address | Add yourusers email address
+| Password | Random 16 character password ONLY i.e cA(8&KxjLHz8s4?A
+| **User Settings**
+| **Roles**
+| `☑` | Auto Approve Movie
+| `☑` | Auto Approve Music
+| `☐` | Power User
+| `☑` | Auto Approve Tv
+| `☐` | Receives Newsletter
+| `☐` | Request Music
+| `☐` | Manage Own Requests
+| `☐` | Edit Custom Page
+| `☐` | Admin
+| `☐` | Request Movie
+| `☐` | Request Tv
+| `☐` | Disabled
+| **Request Limits** | Leave Default
+| **Notification Preferences** | Leave Default
+| ** Quality & Root Path Preferences | Leave Default
+
+And remember to click `Create` to add the user.
+
+![alt text](https://raw.githubusercontent.com/ahuacate/ombi/master/images/User_Management.png)
+
+## 4.00 Create & Restore Ombi Backups
 Ombi does'nt have a built in backup service.
 
 But it's good idea to make a clean backup of your working Ombi settings, including all passwords etc, before adding any tv series media. The clean backup file MUST be stored outside of the Proxmox Ombi LXC container for safe keeping. Then in the event of you needing to recreate your Ombi LXC you can use this backup file to quickly restore all your Ombi settings.
 
 The backup files must be located on your NAS in folder /mnt/backup/ombi for the following scripts to work.
 
-### 3.01 Create a Base Settings Backup
+### 4.01 Create a Base Settings Backup
 Perform after you have completed Steps 1.00 or Steps 2.00. This file must be stored on your NAS for future rebuilds.
 To create a backup use the Proxmox web interface and go to `typhoon-01` > `119 (ombi)` > `>_ Shell` and type the following:
 
@@ -224,7 +225,7 @@ sudo systemctl restart ombi.service
 ```
 Thats it. You have created a base backup.
 
-### 3.03 Restore to Ombi Base Settings
+### 4.02 Restore to Ombi Base Settings
 With the Proxmox web interface go to `typhoon-01` > `119 (ombi)` > `>_ Shell` and type the following:
 ```
 sudo systemctl stop ombi.service &&
@@ -234,5 +235,6 @@ chown 1605:65605 /opt/Ombi/{Ombi.db,OmbiSettings.db,OmbiExternal.db} &&
 sudo systemctl restart ombi.service
 ```
 
+---
 
 ## 00.00 Patches & Fixes
