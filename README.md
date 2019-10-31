@@ -20,7 +20,8 @@ Other Prerequisites are:
 Tasks to be performed are:
 - [ ] 1.00 Manually Configure Ombi Settings
 - [ ] 2.00 Ombi User Management
-- [ ] 3.00 Create & Restore Ombi Backups
+- [ ] 3.00 How to use Ombi
+- [ ] 4.00 Create & Restore Ombi Backups
 - [ ] 00.00 Patches & Fixes
 
 
@@ -205,14 +206,17 @@ And remember to click `Create` to add the new user.
 
 ![alt text](https://raw.githubusercontent.com/ahuacate/ombi/master/images/User_Management.png)
 
-## 3.00 Create & Restore Ombi Backups
+## 3.00 How to use Ombi
+You can use Ombi two ways: With any web browser by typing your externally facing URL (i.e https://jellyfin-site1.foo.bar) or by installing the Ombi App from either the Android or Iphone store. Then login with your preconfigured Ombi user account.
+
+## 4.00 Create & Restore Ombi Backups
 Ombi does'nt have a built in backup service.
 
 But it's good idea to make a clean backup of your working Ombi settings, including all passwords etc, before adding any tv series media. The clean backup file MUST be stored outside of the Proxmox Ombi LXC container for safe keeping. Then in the event of you needing to recreate your Ombi LXC you can use this backup file to quickly restore all your Ombi settings.
 
 The backup files must be located on your NAS in folder /mnt/backup/ombi for the following scripts to work.
 
-### 3.01 Create a Base Settings Backup
+### 4.01 Create a Base Settings Backup
 Perform after you have completed Steps 1.00 or Steps 2.00. This file must be stored on your NAS for future rebuilds.
 To create a backup use the Proxmox web interface and go to `typhoon-01` > `119 (ombi)` > `>_ Shell` and type the following:
 
@@ -224,7 +228,7 @@ sudo systemctl restart ombi.service
 ```
 Thats it. You have created a base backup.
 
-### 3.02 Restore to Ombi Base Settings
+### 4.02 Restore to Ombi Base Settings
 With the Proxmox web interface go to `typhoon-01` > `119 (ombi)` > `>_ Shell` and type the following:
 ```
 sudo systemctl stop ombi.service &&
