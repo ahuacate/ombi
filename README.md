@@ -78,8 +78,8 @@ Click the `Settings` > `TV Tab` > `Sonarr` and configure as follows:
 | SSL | `☐`
 | Sonarr Base Url| `/sonarr`
 | **Other Settings**
-| Quality Profiles | `HD-1080p` | *Note, change to Ultra-HD if you have 4K HDR TV's*
-| Quality Profiles (Anime) | `HD-1080p` | *Note, change to Ultra-HD if you have 4K HDR TV's*
+| Quality Profiles | `HD-1080p` | *Note, change to `Ultra-HD` or custom `4K > HD-1080p` if you have 4K HDR TV's*
+| Quality Profiles (Anime) | `HD-1080p` | *Note, change to `Ultra-HD` or custom `4K > HD-1080p` if you have 4K HDR TV's*
 | Default Root Folders  | `/mnt/video/tv/`
 | Default Root Folders (Anime)  | `/mnt/video/tv/`
 | Language Profiles | Leave Default
@@ -102,7 +102,7 @@ Click the `Settings` > `Movies Tab` > `Radnarr` and configure as follows:
 | SSL | `☐`
 | Base Url| `/radarr`
 | **Other Settings**
-| Quality Profiles | `HD-1080p` | *Note, change to Ultra-HD if you have 4K HDR TV's*
+| Quality Profiles | `HD-1080p` | *Note, change to `Ultra-HD` or custom `4K > HD-1080p` if you have 4K HDR TV's*
 | Default Root Folders  | `/mnt/video/movies/`
 | Default Minimum Availability | `Physical/Web`
 
@@ -123,9 +123,9 @@ Click the `Settings` > `Music Tab` > `Lidarr` and configure as follows:
 | SSL | `☐`
 | Base Url| `/lidarr`
 | **Other Settings**
-| Quality Profiles | `Lossless`
+| Quality Profiles | `Ahuacate`
 | Default Root Folders  | `/mnt/music/`
-| Metadata Profile | Leave Default
+| Metadata Profile | `Standard`
 | Album Folder | `☑`
 
 And click `Test Connectivity` and if success click `Submit`.
