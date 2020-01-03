@@ -18,11 +18,22 @@ Other Prerequisites are:
 - [x] Ombi LXC with Ombi SW installed and configured per [Ombi LXC - Ubuntu 18.04](https://github.com/ahuacate/proxmox-lxc-media/blob/master/README.md#1200-ombi-lxc---ubuntu-1804)
 
 Tasks to be performed are:
-- [ ] 1.00 Manually Configure Ombi Settings
-- [ ] 2.00 Ombi User Management
-- [ ] 3.00 How to use Ombi
-- [ ] 4.00 Create & Restore Ombi Backups
-- [ ] 00.00 Patches & Fixes
+- [1.00 Manually Configure Ombi Settings](#100-manually-configure-ombi-settings)
+	- [1.01 Ombi Tab](#101-ombi-tab)
+	- [1.02 Configuration Tab](#102-configuration-tab)
+	- [1.03 Media Server Tab](#103-media-server-tab)
+	- [1.04 TV Tab](#104-tv-tab)
+	- [1.05 Movies Tab](#105-movies-tab)
+	- [1.06 Music Tab](#106-music-tab)
+	- [1.07 Notifications Tab](#107-notifications-tab)
+	- [1.08 System Tab](#108-system-tab)
+- [2.00 Ombi User Management](#200-ombi-user-management)
+	- [2.01 Add a new user](#201-add-a-new-user)
+- [3.00 How to use Ombi](#300-how-to-use-ombi)
+- [4.00 Create & Restore Ombi Backups](#400-create--restore-ombi-backups)
+	- [4.01 Create a Base Settings Backup](#401-create-a-base-settings-backup)
+	- [4.02 Restore to Ombi Base Settings](#402-restore-to-ombi-base-settings)
+- [00.00 Patches & Fixes](#0000-patches--fixes)
 
 
 ## 1.00 Manually Configure Ombi Settings
