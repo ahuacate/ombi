@@ -84,7 +84,7 @@ Click the `Settings` > `TV Tab` > `Sonarr` and configure as follows:
 | Enable | `☑`
 | V3 | `☑`
 | Sonarr Hostname or IP | `192.168.50.115`
-| Port | `8086`
+| Port | `8989`
 | Sonarr Api Key | `Insert your sonarr api key here`
 | SSL | `☐`
 | Sonarr Base Url| `/sonarr`
